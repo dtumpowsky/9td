@@ -30,3 +30,12 @@
     transform: rotate(360deg);
   }
 }
+
+.grid {
+  border: 1px solid black;
+  border-radius: 100%;
+  display: inline-block;
+  padding: 30px;
+  margin: 10px;
+  font-family: monospace;
+}
