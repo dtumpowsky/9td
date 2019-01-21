@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
+import { recieveMovesService } from '../actions/index.js';
+import { connect } from 'react-redux';
+import { dropTile } from '../actions/index.js';
+
 
 class Grid extends Component {
   handleClick() {
-    console.log('clicked column: ', this.props.x)
+    //identifies each uniqe cell
+    this.props.sendTileDrop({x: this.props.x, y: this.props.y});
+    console.log('clicked column: ', this.props.x);
+
+
   }
 
   render() {
@@ -14,4 +22,16 @@ class Grid extends Component {
   }
 }
 
-export default Grid
+const stateToProps = state => {
+  return {}
+}
+
+const dispatchToProps = dispatch => {
+  return {
+    sendTileDrop(column) {
+      dispatch(dropTile(column))
+    }
+  }
+}
+
+export default connect(stateToProps, dispatchToProps)(Grid);
