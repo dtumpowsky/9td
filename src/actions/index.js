@@ -1,4 +1,3 @@
-import * as actionTypes from '../constants/ActionTypes.js';
 import fetch from 'isomorphic-fetch';
 
 //user clicks column
@@ -8,10 +7,6 @@ export function dropTile(column) {
     payload: column
   }
 }
-
-// export const initialState = {
-//   moves: [];
-// };
 
 export function sendMoveService(moves) {
   fetch('https://w0ayb2ph1k.execute-api.us-west-2.amazonaws.com/production?moves=[2,3]', {
