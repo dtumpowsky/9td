@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import Grid from './components/Grid.js';
-import { recieveMovesService, sendMoveService } from './actions/index.js'
+import logo from './assets/logo.png'
+
 
 class App extends Component {
   render() {
-    recieveMovesService();
-    sendMoveService();
+
     var board = [];
 
     for(var y = 3; y >= 0; y--) {
@@ -24,8 +24,18 @@ class App extends Component {
     return (
 
       <div className="App">
-      <h2> 98point6 </h2>
-        {board}
+        <div className='sidebar'>
+          <p>Player</p>
+          <p>Computer</p>
+        </div>
+        <div className = 'logo'>
+          <img src={logo}/>
+          <p className= 'title'>Drop Tile</p>
+        </div>
+        <div className='board-container'>
+          {board}
+        </div>
+
       </div>
     );
   }

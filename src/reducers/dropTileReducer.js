@@ -9,10 +9,10 @@ function dropTileReducer(state = initialState, action) {
 
   if(action.type === 'DROP_TILE') {
 
-    // var userTurn = state.userTurn
+    var userTurn = state.userTurn
     var payload = action.payload; //index
     var board = state.board.slice();
-    board[action.payload].push(payload); //pushes index into array
+    board[action.payload].push(userTurn); //pushes index into array
 
     //TODO
     // var sendArray = board[action.payload].push(payload)
@@ -26,7 +26,7 @@ function dropTileReducer(state = initialState, action) {
 
 
     return {
-      userTurn: state.userTurn === 'player 1' ? 'player 2' : 'player 1',
+      userTurn: state.userTurn === 1 ? 2 : 1,
       board: board
     }
   }

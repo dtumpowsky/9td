@@ -8,26 +8,16 @@ export function dropTile(column) {
   }
 }
 
-export function sendMoveService(moves) {
-  fetch('https://w0ayb2ph1k.execute-api.us-west-2.amazonaws.com/production?moves=[2,3]', {
-    method: 'POST',
-    headers: {
-      'moves': '[]'
-    }
-  }).then(response => response.json())
-  .then(json => [
-    console.log(json)
-  ])
+export function addMove(column) {
+  return {
+    type: 'ADD_MOVE',
+    payload: column
+  }
 }
 
-export function recieveMovesService(moves) {
-  fetch('https://w0ayb2ph1k.execute-api.us-west-2.amazonaws.com/production?moves=[0,3]', {
-    method: 'GET',
-    headers: {
-      'moves': '[]'
-    }
-  }).then(response => response.json())
-  .then(json => [
-    console.log(json)
-  ])
+export function sendMoveService(moves) {
+  return {
+    type: 'UPDATE_FROM_SERVICE',
+    payload: moves
+  }
 }

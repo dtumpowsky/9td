@@ -1,6 +1,9 @@
 .App {
   text-align: center;
+  background: #E8F7F6;
+  padding-bottom: 5%;
 }
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -31,20 +34,63 @@
   }
 }
 
+.sidebar {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #E8F7F6;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.board-container {
+  border: 4px solid grey;
+  width: 430px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: white;
+  box-shadow: .5px .5px .7px .7px grey;
+  margin-left: auto;
+  margin-right: auto;
+  /* background: linear-gradient(#6c2505, #a8735c, #6c2505); */
+}
+
+.logo {
+  padding-top: 5%;
+}
+
+.title{
+  font-family: Freight Sans Pro, Helvetica, Roboto, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  color: #27A8B0;
+  margin-top: 5px;
+}
+
 .cell {
   border: 1px solid black;
+  background: #E8F7F6;
   border-radius: 100%;
   display: inline-block;
-  padding: 30px;
+  padding: 40px;
   margin: 5px;
   font-family: monospace;
   cursor: pointer;
+  transition: .25s all;
+  box-shadow: .1px .1px .1px .1px inset;
+}
+
+.cell:hover {
+  border: 1px solid yellow; 
 }
 
 .cell.p1 {
-  background-color: red;
+  background: linear-gradient(to right, #484453, #898695);
 }
 
 .cell.p2 {
-  background-color: blue;
+  background: linear-gradient(to right, #32C38E, #229CC1);
 }
