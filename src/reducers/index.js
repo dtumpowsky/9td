@@ -1,9 +1,11 @@
-import { combineReducers, createStore } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+import { combineReducers, applyMiddleware, createStore } from 'redux';
 import dropTileReducer from './dropTileReducer';
 import serviceStateReducer from './serviceStateReducer';
 
+const loggerMiddleware = createLogger();
 
-//single reducer to modify board and user turn
 export const initialState = {
   gameState: {
     userTurn : 1,
@@ -12,9 +14,13 @@ export const initialState = {
       [],
       [],
       []
-    ]
+    ],
   },
-  serviceState: []
+  serviceState: {
+    moves : [],
+    isFetching : false,
+    didInvalidate : false
+  }
 };
 
 
@@ -24,7 +30,11 @@ const rootReducer = createStore(
     serviceState: serviceStateReducer
   }),
   initialState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  applyMiddleware(
+    thunkMiddleware, // lets us dispatch() functions
+    loggerMiddleware // neat middleware that logs actions
+    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 );
 
 export default rootReducer;

@@ -1,22 +1,38 @@
 import { initialState } from '../reducers';
-import { sendMoveService } from '../actions'
+// import { sendMoveService } from '../actions'
 
-//sending payload to store
+
 function serviceStateReducer(state = initialState, action) {
 
-  if(action.type === 'ADD_MOVE') {
-    var serviceStateCopy = state.slice();
-    serviceStateCopy.push(action.payload);
-
-    console.log('service: ' + serviceStateCopy)
-
-    return serviceStateCopy;
-  }
-  
-  if(action.type === 'UPDATE_FROM_SERVICE')
-  {
+  if(action.type === 'UPDATE_FROM_SERVICE'){
       return action.payload;
   }
+
+  if(action.type === 'REQUEST_MOVE') {
+
+    var newState = Object.assign({}, state, {
+      isFetching: true
+    })
+    return newState
+  }
+
+  if(action.type === 'RECEIVE_MOVE') {
+    var newState = Object.assign({}, state, {
+      moves: action.payload,
+      isFetching: false,
+      didInvalidate: false
+    })
+    return newState
+  }
+
+  if(action.type === 'RECEIVE_MOVE_ERROR') {
+    var newState = Object.assign({}, state, {
+      didInvalidate: true
+    })
+    return newState
+  }
+
+
   return state;
 }
 

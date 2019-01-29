@@ -1,31 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { dropTile, addMove, sendMoveService } from '../actions/index.js';
+import { dropTile, fetchMove } from '../actions/index.js';
 
 
 
 class Grid extends Component {
   handleClick() {
     //identifies each uniqe cell
-    // this.props.sendTileDrop({x: this.props.x, y: this.props.y});
+
     var x = this.props.x;
-    console.log('this.props.x; ' + x)
-    console.log('clicked column: ' + x);
-    console.log('pushed: ' + this.props.serviceState.slice().push(x));
 
     this.props.sendTileDropToStore(x);
 
-    fetch('https://w0ayb2ph1k.execute-api.us-west-2.amazonaws.com/production?moves=[' + this.props.serviceState.slice().push(x) + ']', {
-      method: 'GET'
-    }).then(response => response.json())
-    .then(json => {
-        console.log('returned: ' + json);
-        this.props.sendMoveToService(json)
-        this.props.sendTileDropToStore(json.pop())
-    });
-
-
-    var board = this.props.board;
+    this.props.sendMoveToService(x, this.props.moves);
 
 
 
@@ -47,12 +34,22 @@ class Grid extends Component {
 
 
     if (board[x][y] !== undefined) {
-      if (board[x][y] === 1) {
-        classes += ' p2';
-      } else {
+      //full board: draw
+      if (board[x][y].length > 4 && board[y].length >= 4){
+        console.log('board is full')
+
+
+      }
+      else if (board[x][y] === 1) {
         classes += ' p1';
+      } else {
+        classes += ' comp';
       }
     }
+
+
+
+//TODO win condition
 
     return (
       <div className={classes} onClick={() => this.handleClick()}>
@@ -66,7 +63,7 @@ const mapStateToProps = state => {
   return {
     userTurn: state.gameState.userTurn,
     board: state.gameState.board,
-    serviceState: state.serviceState
+    moves: state.serviceState.moves
   }
 
 }
@@ -76,10 +73,10 @@ const dispatchToProps = dispatch => {
     //update state
     sendTileDropToStore(column) {
       dispatch(dropTile(column));
-      dispatch(addMove(column));
+      // dispatch(addMove(column));
     },
-    sendMoveToService(column) {
-      dispatch(sendMoveService(column))
+    sendMoveToService(column, moves) {
+      dispatch(fetchMove(column, moves));
     }
   }
 }

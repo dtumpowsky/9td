@@ -26,7 +26,9 @@ class App extends Component {
       <div className="App">
         <div className='sidebar'>
           <p>Player</p>
+          <div className='legend user'></div>
           <p>Computer</p>
+          <div className='legend comp'></div>
         </div>
         <div className = 'logo'>
           <img src={logo}/>
@@ -35,7 +37,6 @@ class App extends Component {
         <div className='board-container'>
           {board}
         </div>
-
       </div>
     );
   }

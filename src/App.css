@@ -41,7 +41,7 @@
   z-index: 1;
   top: 0;
   right: 0;
-  background-color: #E8F7F6;
+  background: #E8F7F6;
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -51,11 +51,10 @@
   width: 430px;
   padding-top: 20px;
   padding-bottom: 20px;
-  background: white;
+  background: #deb887;
   box-shadow: .5px .5px .7px .7px grey;
   margin-left: auto;
   margin-right: auto;
-  /* background: linear-gradient(#6c2505, #a8735c, #6c2505); */
 }
 
 .logo {
@@ -77,20 +76,46 @@
   display: inline-block;
   padding: 40px;
   margin: 5px;
-  font-family: monospace;
   cursor: pointer;
   transition: .25s all;
   box-shadow: .1px .1px .1px .1px inset;
 }
 
 .cell:hover {
-  border: 1px solid yellow; 
+  border: 1px solid yellow;
+}
+
+.cell:active{
+  padding: 38.5px;
+  margin: 6.5px;
+}
+
+.cell.comp {
+  background: radial-gradient(circle at 50% 30%, #898695, #484453, #484453);
+  /* background: linear-gradient(to right, #484453, #898695); */
 }
 
 .cell.p1 {
-  background: linear-gradient(to right, #484453, #898695);
+  background: radial-gradient(circle at 50% 30%, #B8EDDE, #32C38E, #23A4D2);
+  /* background: linear-gradient(to right, #32C38E, #229CC1); */
 }
 
-.cell.p2 {
-  background: linear-gradient(to right, #32C38E, #229CC1);
+.legend.user {
+  border: 1px solid black;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 30%, #B8EDDE, #32C38E, #23A4D2);
+  display: inline-block;
+  padding: 10px;
+  margin: 0px;
+  font-family: Freight Sans Pro, Helvetica, Roboto, Arial, sans-serif;
+}
+
+.legend.comp {
+  border: 1px solid black;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 30%, #898695,#484453, #484453);
+  display: inline-block;
+  padding: 10px;
+  margin: 0px;
+  font-family: Freight Sans Pro, Helvetica, Roboto, Arial, sans-serif;
 }
