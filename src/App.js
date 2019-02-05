@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Grid from './components/Grid.js';
-import logo from './assets/logo.png'
+import logo from './assets/logo.png';
+import Greeting from './components/Greeting.js';
 
 
 class App extends Component {
@@ -23,19 +24,27 @@ class App extends Component {
 
     return (
 
+
       <div className="App">
-        <div className='sidebar'>
-          <p>Player</p>
-          <div className='legend user'></div>
-          <p>Computer</p>
-          <div className='legend comp'></div>
-        </div>
+      <Greeting />
         <div className = 'logo'>
           <img src={logo}/>
           <p className= 'title'>Drop Tile</p>
         </div>
+
+
         <div className='board-container'>
           {board}
+          <div className='sidebar'>
+            <div className='legend user'>
+              <p>User</p>
+              <div className='legend user icon'></div>
+            </div>
+            <div className='legend comp'>
+              <p>CPU</p>
+              <div className='legend comp icon'></div>
+            </div>
+          </div>
         </div>
       </div>
     );

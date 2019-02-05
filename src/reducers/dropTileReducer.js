@@ -5,7 +5,7 @@ function dropTileReducer(state = initialState, action) {
 
   if(action.type === 'DROP_TILE') {
 
-    var userTurn = state.userTurn
+    var userTurn = state.userTurn;
     var payload = action.payload; //index
     var board = state.board.slice(); //copy of board
 
@@ -14,6 +14,17 @@ function dropTileReducer(state = initialState, action) {
 
     return {
       userTurn: state.userTurn === 1 ? 2 : 1,
+      board: board
+    }
+  }
+
+  if(action.type === 'SWITCH_COLOR') {
+    var userTurn = state.userTurn;
+
+    var board = state.board.slice(); //copy of board
+
+    return {
+      userTurn: state.userTurn === 2 ? 1 : 2,
       board: board
     }
   }

@@ -2,48 +2,20 @@
   text-align: center;
   background: #E8F7F6;
   padding-bottom: 5%;
+  height: 100%;
 }
 
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 .sidebar {
-  height: 100%;
-  width: 160px;
+  padding-right: 20px;
   position: fixed;
   z-index: 1;
   top: 0;
   right: 0;
-  background: #E8F7F6;
+  background: transparent;
   overflow-x: hidden;
   padding-top: 20px;
+  padding-right: 140px;
 }
 
 .board-container {
@@ -55,6 +27,7 @@
   box-shadow: .5px .5px .7px .7px grey;
   margin-left: auto;
   margin-right: auto;
+  z-index: -1;
 }
 
 .logo {
@@ -64,7 +37,7 @@
 .title{
   font-family: Freight Sans Pro, Helvetica, Roboto, Arial, sans-serif;
   font-weight: 700;
-  font-size: 36px;
+  font-size:  40px;
   color: #27A8B0;
   margin-top: 5px;
 }
@@ -101,21 +74,134 @@
 }
 
 .legend.user {
+  font-family: Freight Sans Pro, Helvetica, Roboto, Arial, sans-serif;
+  font-weight: 700;
+  color: #7a828e;
+}
+
+.legend.user.icon {
   border: 1px solid black;
   border-radius: 50%;
   background: radial-gradient(circle at 50% 30%, #B8EDDE, #32C38E, #23A4D2);
   display: inline-block;
-  padding: 10px;
+  padding: 20px;
   margin: 0px;
   font-family: Freight Sans Pro, Helvetica, Roboto, Arial, sans-serif;
 }
 
 .legend.comp {
+  font-family: Freight Sans Pro, Helvetica, Roboto, Arial, sans-serif;
+  font-weight: 700;
+  color: #7a828e;
+}
+.legend.comp.icon {
   border: 1px solid black;
   border-radius: 50%;
   background: radial-gradient(circle at 50% 30%, #898695,#484453, #484453);
   display: inline-block;
-  padding: 10px;
+  padding: 20px;
   margin: 0px;
   font-family: Freight Sans Pro, Helvetica, Roboto, Arial, sans-serif;
+}
+
+.greeting.btn.user {
+  background: #2BB4B1;
+  cursor: pointer;
+  height: 40px;
+  width: 100px;
+  border-radius: 10px;
+  margin-right: 100px;
+  margin-left: 80px;
+  font-family: Freight Sans Pro, Helvetica, Roboto, Arial, sans-serif;
+  color: white;
+  font-weight: bold;
+}
+
+.greeting.btn.comp {
+  background: #7a828e;
+  cursor: pointer;
+  height: 40px;
+  width: 100px;
+  border-radius: 10px;
+  font-family: Freight Sans Pro, Helvetica, Roboto, Arial, sans-serif;
+  color: white;
+  font-weight: bold;
+}
+
+
+
+@media (max-width: 923px) {
+
+  .App {
+    text-align: center;
+    background: #E8F7F6;
+    padding-bottom: 270px;
+    height: 100%;
+  }
+
+  .board-container {
+    border: 4px solid grey;
+    width: 340px;
+    height: 330px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #deb887;
+    box-shadow: .5px .5px .7px .7px grey;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: -1;
+  }
+
+  .cell {
+    border: 1px solid black;
+    background: #E8F7F6;
+    border-radius: 100%;
+    display: inline-block;
+    padding: 35px;
+    margin: 5px;
+    cursor: pointer;
+    transition: .25s all;
+    box-shadow: .1px .1px .1px .1px inset;
+  }
+
+  .cell:active{
+    padding: 34.5px;
+    margin: 5.5px;
+  }
+
+  .cell:hover {
+    border: 1px solid yellow;
+  }
+
+  .sidebar {
+    background: transparent;
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-left: 20px !important;
+  }
+
+  .legend.user {
+    display: inline-block;
+    padding-right: 30px;
+    font-family: Freight Sans Pro, Helvetica, Roboto, Arial, sans-serif;
+    font-weight: 700;
+    color: #7a828e;
+  }
+
+  .legend.comp {
+    display: inline-block;
+    margin-right: -115px;
+    font-family: Freight Sans Pro, Helvetica, Roboto, Arial, sans-serif;
+    font-weight: 700;
+    color: #7a828e;
+  }
+
+  .legend.user.icon {
+    padding: 10px;
+  }
+
+  .legend.comp.icon {
+    padding: 10px;
+  }
 }

@@ -9,13 +9,6 @@ export function dropTile(column) {
   }
 }
 
-export function addMove(column) {
-  return {
-    type: 'ADD_MOVE',
-    payload: column
-  }
-}
-
 export function sendMoveService(moves) {
   return {
     type: 'UPDATE_FROM_SERVICE',
@@ -43,6 +36,12 @@ export function receiveMoveError(error) {
   return {
     type: 'RECEIVE_MOVE_ERROR',
     payload: error
+  }
+}
+
+export function switchColor() {
+  return {
+    type: 'SWITCH_COLOR'
   }
 }
 
