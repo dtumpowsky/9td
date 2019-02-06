@@ -3,10 +3,12 @@ import { createLogger } from 'redux-logger';
 import { combineReducers, applyMiddleware, createStore } from 'redux';
 import dropTileReducer from './dropTileReducer';
 import serviceStateReducer from './serviceStateReducer';
+import greetingStateReducer from './greetingStateReducer';
 
 const loggerMiddleware = createLogger();
 
 export const initialState = {
+  //represents board
   gameState: {
     userTurn : 1,
     board: [
@@ -15,11 +17,20 @@ export const initialState = {
       [],
       []
     ],
+    first : 1
   },
+
+  //service requires this format
   serviceState: {
     moves : [],
     isFetching : false,
     didInvalidate : false
+  },
+
+  //alert greeting/winner
+  greetingState: {
+    show : true,
+    winner : ''
   }
 };
 
@@ -27,13 +38,13 @@ export const initialState = {
 const rootReducer = createStore(
   combineReducers({
     gameState: dropTileReducer,
-    serviceState: serviceStateReducer
+    serviceState: serviceStateReducer,
+    greetingState: greetingStateReducer
   }),
   initialState,
   applyMiddleware(
-    thunkMiddleware, // lets us dispatch() functions
-    loggerMiddleware // neat middleware that logs actions
-    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    thunkMiddleware,
+    loggerMiddleware
   )
 );
 

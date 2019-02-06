@@ -3,6 +3,7 @@ import './App.css';
 import Grid from './components/Grid.js';
 import logo from './assets/logo.png';
 import Greeting from './components/Greeting.js';
+import { connect } from 'react-redux';
 
 
 class App extends Component {
@@ -10,29 +11,33 @@ class App extends Component {
 
     var board = [];
 
+    // generates grid
     for(var y = 3; y >= 0; y--) {
       var row = [];
       for(var x = 0; x <= 3; x++) {
-        //give each column a unique x identifier
-        row.push(<Grid key={x} x={x} y={y} />);
+        row.push(<Grid key={x} x={x} y={y} />); //column
       }
-      //give each row unique y identifier
-      board.push(<div key={y} className='row'>{row}</div>);
+      board.push(<div key={y} className='row'>{row}</div>); //row
     }
 
 
+    var greeting;
+
+    if(this.props.showGreeting === true ) {
+      greeting = <Greeting />
+    }
 
     return (
 
 
       <div className="App">
-      <Greeting />
+
+        {greeting}
+
         <div className = 'logo'>
           <img src={logo}/>
           <p className= 'title'>Drop Tile</p>
         </div>
-
-
         <div className='board-container'>
           {board}
           <div className='sidebar'>
@@ -51,4 +56,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    showGreeting: state.greetingState.show
+  }
+}
+
+export default connect(mapStateToProps)(App);
