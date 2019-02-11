@@ -141,12 +141,14 @@ export function playerMove(column) {
 //service call
 export function fetchMove(move, prevMoves) {
 
-  var moves = prevMoves.push(move);
+  // var moves = prevMoves.push(move);
 
   return function(dispatch) {
 
     dispatch(requestMove())
 
+    console.log('service state ' + store.getState().serviceState.moves)
+    let moves = [...store.getState().serviceState.moves, move]
     console.log('moves:' + moves)
 
     return fetch('https://w0ayb2ph1k.execute-api.us-west-2.amazonaws.com/production?moves=[' + moves + ']', {
@@ -155,7 +157,7 @@ export function fetchMove(move, prevMoves) {
     .then(json => {
         console.log('returned json: ' + json);
 
-        dispatch(receiveMove(json))
+        dispatch(receiveMove([...json]))
 
         dispatch(dropTile(json.pop()))
 

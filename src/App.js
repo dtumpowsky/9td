@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Grid from './components/Grid.js';
-import logo from './assets/logo.png';
 import Greeting from './components/Greeting.js';
 import { connect } from 'react-redux';
 
@@ -35,8 +34,7 @@ class App extends Component {
         {greeting}
 
         <div className = 'logo'>
-          <img src={logo}/>
-          <p className= 'title'>Drop Tile</p>
+          <h1 className = 'title'>Connect Four</h1>
         </div>
         <div className='board-container'>
           {board}

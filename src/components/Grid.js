@@ -11,6 +11,8 @@ class Grid extends Component {
     this.props.sendTileDropToStore(x);
 
     this.props.sendMoveToService(x, this.props.moves);
+
+    console.log('board: ' + this.props.board)
   }
 
   render() {

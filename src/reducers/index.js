@@ -8,7 +8,7 @@ import greetingStateReducer from './greetingStateReducer';
 const loggerMiddleware = createLogger();
 
 export const initialState = {
-  //represents board
+
   gameState: {
     userTurn : 1,
     board: [
@@ -20,14 +20,12 @@ export const initialState = {
     first : 1
   },
 
-  //service requires this format
   serviceState: {
     moves : [],
     isFetching : false,
     didInvalidate : false
   },
 
-  //alert greeting/winner
   greetingState: {
     show : true,
     winner : ''
