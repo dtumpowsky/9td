@@ -4,7 +4,7 @@
 
 ## `Demo`
 
-[Play Game Here](https://dtumpowsky.github.io/React-Connect-Four/)
+[Play Game Here](https://dtumpowsky.github.io/React-Connect-Four/public)
 
 ## `Description`
 
