@@ -2,7 +2,7 @@
   "name": "9td",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/dtumpowsky/React-Connect-Four",
+  "homepage": "https://dtumpowsky.github.io/React-Connect-Four/",
   "dependencies": {
     "cross-fetch": "^3.0.0",
     "es6-promise": "^4.2.5",
