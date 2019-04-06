@@ -14,6 +14,7 @@ Connect Four takes place on a 4x4 grid. A token is dropped along a column and sa
 ### `Built With`
 
 * React
+* Redux
 * JSX
 
 ### `Download App`
